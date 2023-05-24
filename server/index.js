@@ -20,9 +20,15 @@ app.get('/', (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
+
+  
+
 app.listen(PORT, ()=>{
     console.log(`server is lintenning on port ${PORT}`)
 })
 
+app.post('/contact',(req, res) => {
+  res.send(req.body)
+})
 
 app.get('/contact', db.getContact)
