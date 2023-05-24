@@ -7,28 +7,34 @@ const Contact = () => {
     function MyForm() {
         const [name, setName] = useState("");
         const [email, setEmail] = useState("");
-        const handleSubmit = (event) => {
-          event.preventDefault();
-          alert(`The name you entered was: ${name}`)
-          console.log(email);
+        
+          const handleSubmit = (event) => {
+            event.preventDefault();
+          handleOnNameSubmit({
+          name: name,
+          
+         })
+         handleOnEmailSubmit({
+          email: email
+         })
+         
 
+        }
+        const handleOnNameSubmit = (name) => {
+          setName([...name, name])
+        }
+        const handleOnEmailSubmit = (email) => {
+          setEmail([...email, email])
         }
       
         return (
           <form onSubmit={handleSubmit}>
             <label>Name:
               <input 
-                type="text" 
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+                type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
             </label>
             <label>email:
-              <input 
-                type="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <input type="email"  email="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </label>
             <input type="submit" />
           </form>
